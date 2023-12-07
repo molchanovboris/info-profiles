@@ -1,12 +1,23 @@
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  Home,
+  Repositories,
+  UserInfo,
+  RepositoryInfo
+} from './pages';
+
 
 function App() {
   return (
-    <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:username" element={<UserInfo />} />
+        <Route path="/star/:username" element={<Repositories />} />
+        <Route path="/repository/:login/:name" element={<RepositoryInfo />} />
+      </Routes>
+    </Router>
   )
 }
 
